@@ -47,7 +47,9 @@ export default function MainNav() {
           <Navbar.Brand className="ms-4">Farbod Moayeri</Navbar.Brand>
           <Nav className="me-auto">
             <Link href="/" passHref legacyBehavior><Nav.Link active={router.pathname === "/"} onClick={handleNavLinkClick}>Home</Nav.Link></Link>
-            <Link href="/search" passHref legacyBehavior><Nav.Link active={router.pathname === "/search"} onClick={handleNavLinkClick}>Advanced Search</Nav.Link></Link>
+            {token && 
+              <Link href="/search" passHref legacyBehavior><Nav.Link active={router.pathname === "/search"} onClick={handleNavLinkClick}>Advanced Search</Nav.Link></Link>
+            }
           </Nav>
         </div>
         
@@ -56,21 +58,26 @@ export default function MainNav() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto d-flex align-items-center">
               &nbsp;
-              <Form onSubmit={handleSubmit(submitForm)} className="d-flex">
-                  <Row>
-                      <Col xs="auto p-0">
-                          <Form.Control
-                              type="text"
-                              placeholder="Search"
-                              className="mr-sm-2"
-                              {...register('search')}
-                          />
-                      </Col>
-                      <Col xs="auto">
-                          <Button type="submit">Search</Button>
-                      </Col>
-                  </Row>
-              </Form>
+              {token &&
+              
+                <Form onSubmit={handleSubmit(submitForm)} className="d-flex">
+                    <Row>
+                        <Col xs="auto p-0">
+                            <Form.Control
+                                type="text"
+                                placeholder="Search"
+                                className="mr-sm-2"
+                                {...register('search')}
+                            />
+                        </Col>
+                        <Col xs="auto">
+                            <Button type="submit">Search</Button>
+                        </Col>
+                    </Row>
+                </Form>
+                
+              }
+              
               &nbsp;
               {token &&
                 <NavDropdown title={token.userName} id="collapsible-nav-dropdown">
