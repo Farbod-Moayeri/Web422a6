@@ -1,0 +1,23 @@
+.artwork-card {
+    width: 18rem;
+    height: 30rem;  
+}
+  
+.card-img-custom {
+    height: 50%;
+    object-fit: cover;
+}
+
+.card-body-custom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.text-truncate {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+  
