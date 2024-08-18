@@ -1,7 +1,8 @@
 import { getToken } from "./authenticate";
 
 async function makeRequest(url, method) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${url}`, {
+  console.log(url);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${url}`, {
     method: method,
     headers: {
       'Content-Type': 'application/json',
